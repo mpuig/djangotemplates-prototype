@@ -3,6 +3,43 @@ Django Prototype
 
 This is a skeleton Django application to be used to create a fast html prototype of your projects, using the powerful Django template system.
 
+Usage
+-----
+Templates are created as usual.
+
+** Main page (dashboard)
+Link to the main from the template: {{ return_link }} 
+
+
+** Content for "authenticated" users
+
+Link to switch between login/logout: 
+{{change_login_link}} 
+
+Show different options for anonymous/registered users:
+{% if login %}info for registered user{% else %}info for anonymous{% endif %}
+
+
+
+** Repeat content
+
+There's a templatetag to do a loop inside templates:
+{% load mytags %}
+<ul>{% for i in 3|get_range %}
+  <li>{{ i }}. Do something</li>
+{% endfor %}</ul>
+
+
+** partials
+As usual, it's possible to create independent snippets of code, to be included everywhere with:
+{% include "parts/mini_user_profile.html" %}
+
+** template status
+Adding a line on top of the templates, it's possible to indicate the current dev status
+{# Here, title of the page (DONE) #}
+{# here, title of the page (INCOMPLETE) #}
+
+
 Kudos
 -----
 - Based on django-prototype.
