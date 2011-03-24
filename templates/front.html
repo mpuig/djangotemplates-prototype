@@ -1,0 +1,15 @@
+{# Front page (INCOMPLETE) #}
+{% extends "layout/base.html" %}
+{% block title %}Welcome!{% endblock %}
+
+{% block content %}
+	<h1>Home</h1>
+
+  {% if login %}
+    <p>This content is only for registered users</p>
+  {% else %}
+    <p>This content is for everybody</p>
+  {% endif %}
+
+  
+{% endblock %}

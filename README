@@ -1,0 +1,8 @@
+Django Prototype 
+==============
+
+This is a skeleton Django application to be used to create a fast html prototype of your projects, using the powerful Django template system.
+
+Kudos
+-----
+- Based on django-prototype.

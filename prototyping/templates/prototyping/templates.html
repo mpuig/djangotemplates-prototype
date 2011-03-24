@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body, html {
+		font-family: helvetica, arial, sans-serif;
+		background: #ddd;
+	}
+	h1 {
+		padding: 5px 15px;
+		font: normal italic 24px/30px georgia;
+		text-transform: lowercase;
+		background: #000;
+		color: #fff;
+	}
+	ol {
+		list-style-position: inside;
+	}
+	li {
+		padding: 7px 10px;
+		border-bottom: 1px solid #999;
+		background: #eee;
+		font-weight: bold;
+	}
+	li a {
+		text-decoration: none;
+		color: #333;
+	}
+	li a span {
+		margin-left: 5px;
+		padding: 1px 3px;
+		font-size: 12px;
+		background: #555;
+		color: #fff;
+	}
+	li a span.done {
+		background: green;
+	}
+	li a span.incomplete {
+		background: red;
+	}
+	</style>
+</head>
+<body>
+	<h1>{{ title }}</h1>
+	<ol>
+		{% for template in templates %}
+		<li>
+			<a href="{{ template.url }}">
+				{{ template.title }}
+				{% if template.label %}
+					<span class="label {{ template.label|lower }}">
+						{{ template.label|upper }}
+					</span>
+				{% endif %}
+			</a>
+		</li>
+		{% endfor %}
+	</ol>
+</body>
+</html>

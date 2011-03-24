@@ -1,0 +1,13 @@
+#fixed_top {
+  background-color: #EEEEEE;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#fixed_top p#user{
+  float: right;
+  margin: 0;
+  padding: 0;
+}
