@@ -1,0 +1,29 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+	<title>{% block title %}{% endblock %} - {{ website_name }}</title>
+	
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css?v=1">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/prototype.css?v=1">
+</head>
+
+<body>
+  
+  <div id="fixed_top">
+    {{ return_link }}  
+    <span id="user">{{change_login_link}} - {% if login %}registered user{% else %}anonymous{% endif %}</span>
+  </div>
+  
+  <div id="container">
+    
+    <div id="main" role="main">
+    	{% block content %}
+    		<p>Content goes here.</p>
+    	{% endblock %}
+    </div>
+    
+  </div> <!--! end of #container -->
+  
+</body>
+</html>

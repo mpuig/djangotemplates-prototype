@@ -1,0 +1,16 @@
+{# Text example (INCOMPLETE) #}
+{% extends "layout/base.html" %}
+
+{% load mytags webdesign %}
+
+{% block title %}Help{% endblock %}
+{% block content %}
+
+<h1>3 random paragraphs</h1>
+
+{% for i in 3|get_range %}
+  <h2>{{i}}. {% lorem 5 w random %}?</h2>
+  {% lorem 3 p random %}
+{% endfor %}
+
+ {% endblock %}

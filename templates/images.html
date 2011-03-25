@@ -1,0 +1,18 @@
+{# Images example (INCOMPLETE) #}
+{% extends "layout/base.html" %}
+
+{% load mytags webdesign %}
+
+{% block title %}Section 1{% endblock %}
+
+{% block content %}
+
+<h1>Images</h1>
+
+{% image 300 200 %}
+<br />
+{% for i in 10|get_range %}
+  {% image 50 50 %}
+{% endfor %}
+ 
+ {% endblock %}

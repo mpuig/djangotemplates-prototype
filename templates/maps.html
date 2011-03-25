@@ -1,0 +1,20 @@
+{# Maps example (DONE) #}
+{% extends "layout/base.html" %}
+
+{% load mytags webdesign %}
+
+{% block title %}Section 2{% endblock %}
+
+{% block content %}
+
+<h1>Map example</h1>
+
+{% lorem 1 p random %}
+ 
+{% gmaps 400 250 %}
+
+{% gmaps 400 300 terrain %}
+
+{% gmaps 400 %}
+
+{% endblock %}
