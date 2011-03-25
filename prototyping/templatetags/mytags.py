@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from django import template
 import random
 
@@ -45,8 +47,8 @@ def image(parser, token):
 
   Examples:
       * ``{% image %}`` will output the default 100x100 image
-      * ``{% lorem 300 %}`` will output a 300x100 image
-      * ``{% lorem 300 500 %}`` will output a 300x500 image
+      * ``{% image 300 %}`` will output a 300x100 image
+      * ``{% image 300 500 %}`` will output a 300x500 image
   """
   
   bits = list(token.split_contents())
@@ -58,3 +60,49 @@ def image(parser, token):
       raise template.TemplateSyntaxError("Incorrect format for %r tag" % tagname)
   return ImageNode(width, height)
 image = register.tag(image)
+
+class StaticMapNode(template.Node):
+  def __init__(self, width, height, maptype):
+      self.width, self.height, self.maptype = width, height, maptype
+
+  def render(self, context):
+      places = ('Williamsburg,Brooklyn,NY', 'Berkeley,CA', '63.259591,-144.667969', 'Boston,MA', 'Brooklyn+Bridge,New+York,NY')
+      center = random.choice(places)
+      img = 'http://maps.google.com/maps/api/staticmap?center=%s&zoom=14&size=%sx%s&maptype=%s&sensor=false' % (center, self.width, self.height, self.maptype)
+      return u'<img src="%s" />' % img
+      
+def gmaps(parser, token):
+  """
+  Creates random Google Maps useful for providing test maps in templates.
+
+  Usage format::
+
+      {% gmaps [width] [height] [maptype] %}
+
+  ``width`` is the image width, in pixels (default is 100).
+
+  ``height`` is the image height, in pixels (default is 100).
+
+  Examples:
+      * ``{% gmaps 300 500 %}`` will output a 300x500 image
+  """
+  
+  bits = list(token.split_contents())
+  tagname = bits[0]
+
+  if bits[-1] in ('terrain', 'satellite', 'hybrid', 'roadmap'):
+      maptype = bits.pop()
+  else:
+      maptype = 'roadmap'
+
+  try:
+      width = bits[1]
+  except:
+      width = 100
+  try:
+      height = bits[2]
+  except:
+      height = 100
+  
+  return StaticMapNode(width, height, maptype)
+gmaps = register.tag(gmaps)

@@ -3,21 +3,19 @@
 
 {% load mytags webdesign %}
 
-{% block title %}Welcome!{% endblock %}
+{% block title %}Front page (register & anonymous users){% endblock %}
 
 {% block content %}
-	<h1>Home</h1>
+	<h1>Front page (register & anonymous users)</h1>
 
   {% if login %}
-    <p>This content is only for registered users</p>
+    <p>This is a nice image, only for registered users ;-) </p>
+    {% image 200 200 %}
+    <p>Click on the top right link to logout.</p>
   {% else %}
     <p>This content is for everybody</p>
+    <p>Click on the top right "Login" link to simulate the login.</p>
   {% endif %}
 
-  {% image 300 200 %}
-<br />
-  {% for i in 10|get_range %}
-    {% image 50 50 %}
-  {% endfor %}
   
 {% endblock %}

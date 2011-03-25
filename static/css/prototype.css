@@ -1,13 +1,14 @@
 #fixed_top {
   background-color: #EEEEEE;
   left: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
+  height: 20px;
 }
 
-#fixed_top p#user{
+#fixed_top span#user{
   float: right;
   margin: 0;
-  padding: 0;
+  padding: 0 2px;
 }

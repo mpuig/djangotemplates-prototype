@@ -1,19 +1,9 @@
 <!doctype html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
 
-  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-       Remove this if you use the .htaccess -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  
 	<title>{% block title %}{% endblock %} - {{ website_name }}</title>
 	
-	<!-- CSS: implied media="all" -->
   <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css?v=1">
   <link rel="stylesheet" href="{{ STATIC_URL }}css/prototype.css?v=1">
 </head>
@@ -21,8 +11,8 @@
 <body>
   
   <div id="fixed_top">
-    {{ return_link }} {{change_login_link}} 
-    <p id="user">{% if login %}registered user{% else %}anonymous{% endif %}</p>
+    {{ return_link }}  
+    <span id="user">{{change_login_link}} - {% if login %}registered user{% else %}anonymous{% endif %}</span>
   </div>
   
   <div id="container">
@@ -44,8 +34,10 @@
   </div> <!--! end of #container -->
   
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+<!--
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
   <script src="{{ STATIC_URL }}js/script.js"></script>
+-->
 
 </body>
 </html>
