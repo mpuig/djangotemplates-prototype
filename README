@@ -11,6 +11,7 @@ Templates are created as usual.
 Link to the main from the template: {{ return_link }} 
 
 
+
 ** Content for "authenticated" users
 
 Link to switch between login/logout: 
@@ -18,6 +19,8 @@ Link to switch between login/logout:
 
 Show different options for anonymous/registered users:
 {% if login %}info for registered user{% else %}info for anonymous{% endif %}
+
+
 
 ** images
 Using the included templatetad "image", a set of random images is used to generate them.
@@ -27,6 +30,44 @@ The syntax is as follows:
 
 For example: 
 	{% image 300 200 %}
+
+
+
+** Google Maps
+Using the included templatetad "gmaps", different static maps can be generated
+
+The syntax is as follows: 
+	{% gmaps [width] [height] [maptype] %}
+	where maptype can be any 'terrain', 'satellite', 'hybrid', 'roadmap'
+	
+For example: 
+	{% gmaps 300 200 %}
+
+
+
+** Random text
+Creates random Latin text useful for providing test data in templates.
+
+Usage format::
+
+    {% lorem [count] [method] [random] %}
+
+``count`` is a number (or variable) containing the number of paragraphs or
+words to generate (default is 1).
+
+``method`` is either ``w`` for words, ``p`` for HTML paragraphs, ``b`` for
+plain-text paragraph blocks (default is ``b``).
+
+``random`` is the word ``random``, which if given, does not use the common
+paragraph (starting "Lorem ipsum dolor sit amet, consectetuer...").
+
+Examples:
+    * ``{% lorem %}`` will output the common "lorem ipsum" paragraph
+    * ``{% lorem 3 p %}`` will output the common "lorem ipsum" paragraph
+      and two random paragraphs each wrapped in HTML ``<p>`` tags
+    * ``{% lorem 2 w random %}`` will output two random latin words
+
+
 
 ** Repeat content
 
