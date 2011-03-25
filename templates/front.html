@@ -1,5 +1,8 @@
 {# Front page (INCOMPLETE) #}
 {% extends "layout/base.html" %}
+
+{% load mytags webdesign %}
+
 {% block title %}Welcome!{% endblock %}
 
 {% block content %}
@@ -11,5 +14,10 @@
     <p>This content is for everybody</p>
   {% endif %}
 
+  {% image 300 200 %}
+<br />
+  {% for i in 10|get_range %}
+    {% image 50 50 %}
+  {% endfor %}
   
 {% endblock %}

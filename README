@@ -19,7 +19,14 @@ Link to switch between login/logout:
 Show different options for anonymous/registered users:
 {% if login %}info for registered user{% else %}info for anonymous{% endif %}
 
+** images
+Using the included templatetad "image", a set of random images is used to generate them.
 
+The syntax is as follows: 
+	{% image [width] [height] %}
+
+For example: 
+	{% image 300 200 %}
 
 ** Repeat content
 
@@ -43,3 +50,10 @@ Adding a line on top of the templates, it's possible to indicate the current dev
 Kudos
 -----
 - Based on django-prototype.
+
+- images:
+	http://www.flickr.com/photos/niamor/3600299837/
+	http://www.flickr.com/photos/xo-st/2648152355/
+	http://www.flickr.com/photos/63873121@N00/3929731711/
+	http://www.flickr.com/photos/epsos/3585168626
+	http://www.flickr.com/photos/photonaut/553120058

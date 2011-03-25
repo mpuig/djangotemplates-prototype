@@ -108,6 +108,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'django.contrib.webdesign',
     'prototyping',
 )
 
